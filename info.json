@@ -1,0 +1,9 @@
+{
+	"name": "skys-lib",
+	"version": "1.1.0",
+	"factorio_version": "1.1",
+	"title": "Sky's Utilities",
+	"author": "SkyKiwi",
+	"description": "A library for functions shared between SkyKiwi's mods.",
+	"dependencies": []
+}
