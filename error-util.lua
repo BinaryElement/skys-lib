@@ -1,4 +1,8 @@
-function get_delayed_error_message()
+error_util = {
+	table = {}
+}
+
+function error_util.get_delayed_error_message()
 	local errorDummy = game.item_prototypes["sim-error-dummy"];
 	if (errorDummy) then
 		return errorDummy.localised_description
@@ -6,11 +10,11 @@ function get_delayed_error_message()
 	return nil
 end
 
-function set_delayed_error_message(modName, value)
-    print("[Sky's Infinite Modules] Caught error ["..value.."]")
+function error_util.set_delayed_error_message(modName, value)
+    print("[Sky's Library] Caught error ["..value.."]")
 
 	if (data.raw["item"]["simerrordummy"]) then
-		print("[Sky's Infinite Modules]    An error is already stored.")
+		print("[Sky's Library]    An error is already stored.")
 	else
 		local errorDummy = 
 		{

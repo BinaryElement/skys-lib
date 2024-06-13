@@ -1,6 +1,7 @@
 logging_level_console = 1
 logging_level_chat = 2
 logging_level_aggressive = 3
+log_source = settings.startup["log-source"].value
 
 local temp = settings.startup["logging-level-console"].value
 if (temp == "Info") then logging_level_console = 1
