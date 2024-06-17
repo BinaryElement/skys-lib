@@ -20,3 +20,5 @@ if (temp == "Info") then logging_level_aggressive = 1
 elseif (temp == "Warn") then logging_level_aggressive = 2
 elseif (temp == "Error") then logging_level_aggressive = 3
 else logging_level_aggressive = 0 end
+
+did_error = false

@@ -1,6 +1,14 @@
+require("defines")
+
 error_util = {
 	table = {}
 }
+
+function error_util.error_protected_call(func) 
+	xpcall(func, function(errMessage)
+		error_util.set_delayed_error_message(errMessage)
+	end)
+end
 
 function error_util.get_delayed_error_message()
 	local errorDummy = game.item_prototypes["sim-error-dummy"];
@@ -10,7 +18,7 @@ function error_util.get_delayed_error_message()
 	return nil
 end
 
-function error_util.set_delayed_error_message(modName, value)
+function error_util.set_delayed_error_message(value)
     print("[Sky's Library] Caught error ["..value.."]")
 
 	if (data.raw["item"]["simerrordummy"]) then
@@ -26,8 +34,11 @@ function error_util.set_delayed_error_message(modName, value)
 			stack_size = 100,
 			subgroup = "intermediate-product",
 			type = "item",
-			localised_description = "["..modName.."]\n\n"..value
+			localised_description = value
 		}
 		data:extend({errorDummy})
+		data.raw["utility-constants"]["default"].main_menu_background_image_location = "__skys-lib__/graphics/background-image.jpg"
+		data.raw["utility-constants"]["default"].main_menu_simulations = {}
+		did_error = true
 	end
 end
