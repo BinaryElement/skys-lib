@@ -43,6 +43,9 @@ function log_util.log_with_level_and_indent(message, level, indent, level_string
     end
     if level >= logging_level_chat then
         --TODO chat message here
+        if game then
+            game.print(str)
+        end
     end
     if level >= logging_level_console then
         print(str)
