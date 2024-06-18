@@ -11,7 +11,7 @@ function error_util.error_protected_call(func)
 end
 
 function error_util.get_delayed_error_message()
-	local errorDummy = game.item_prototypes["sim-error-dummy"];
+	local errorDummy = game.item_prototypes["sklib-error-dummy"];
 	if (errorDummy) then
 		return errorDummy.localised_description
 	end
@@ -20,6 +20,8 @@ end
 
 function error_util.set_delayed_error_message(value)
     print("[Sky's Library] Caught error ["..value.."]")
+	log(value)
+	if #value >= 200 then value = string.sub(value, 1, 196).."..." end
 
 	if (data.raw["item"]["simerrordummy"]) then
 		print("[Sky's Library]    An error is already stored.")
@@ -29,7 +31,7 @@ function error_util.set_delayed_error_message(value)
 			icon = "__base__/graphics/icons/iron-gear-wheel.png",
 			icon_mipmaps = 4,
 			icon_size = 64,
-			name = "sim-error-dummy",
+			name = "sklib-error-dummy",
 			order = "zzzzzz",
 			stack_size = 100,
 			subgroup = "intermediate-product",
