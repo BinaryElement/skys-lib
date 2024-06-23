@@ -5,5 +5,5 @@
 	"title": "Sky's Utilities",
 	"author": "SkyKiwi",
 	"description": "A library for functions shared between SkyKiwi's mods.",
-	"dependencies": []
+	"dependencies": ["flib"]
 }
