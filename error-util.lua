@@ -11,7 +11,7 @@ function error_util.error_protected_call(func)
 end
 
 function error_util.get_delayed_error_message()
-	local errorDummy = game.item_prototypes["sklib-error-dummy"];
+	local errorDummy = prototypes.item["sklib-error-dummy"];
 	if (errorDummy) then
 		return errorDummy.localised_description
 	end
